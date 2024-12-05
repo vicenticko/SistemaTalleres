@@ -1,0 +1,55 @@
+<!-- Menú lateral -->
+<ion-menu side="start" menuId="first" contentId="main-content" class="custom-menu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item *ngIf="isLoggedIn">
+        <ion-icon  slot="start" name="create-outline"></ion-icon>
+        <ion-button (click)="registrarTaller()">Registrar Taller</ion-button>
+      </ion-item>
+      <ion-item *ngIf="isLoggedIn">
+        <ion-icon slot="start" name="person-add-outline"></ion-icon>
+        <ion-button (click)="registrarUsuario()">Registrar Usuario</ion-button>
+      </ion-item>
+      <ion-item *ngIf="!isLoggedIn">
+        <ion-button color="primary" (click)="onLogin()">Iniciar Sesión</ion-button>
+      </ion-item>
+      <ion-item *ngIf="!isLoggedIn">
+        <ion-button color="secondary" (click)="onRegister()">Registrar</ion-button>
+      </ion-item>
+      <ion-item (click)="logout()" *ngIf="isLoggedIn">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        <ion-button>Cerrar Sesión</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido Principal -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+    <ion-buttons slot="start">
+      <!-- Botón para abrir el menú lateral -->
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" id="main-content">
+  <div class="container">
+    <ion-card >
+      <img src="assets/img/muni2.jpg" alt="Logo" class="logo" />
+      <ion-card-content>
+        <h2>Bienvenido Municipalidad de Puente Alto</h2>
+        <p>
+          Navega por las opciones del menú lateral para acceder a las funcionalidades disponibles.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-card class="login-card">
+      <form (ngSubmit)="login()">
+        <!-- Campo de Email -->
+        <ion-item class="input-item">
+          <ion-input 
+            type="email" 
+            placeholder="Correo Electrónico" 
+            [(ngModel)]="email" 
+            name="email"
+            required 
+            label="Correo Electrónico" 
+            labelPlacement="stacked">
+          </ion-input>
+        </ion-item>
+
+        <!-- Campo de Contraseña -->
+        <ion-item class="input-item">
+          <ion-input 
+            type="password" 
+            placeholder="Contraseña" 
+            [(ngModel)]="password" 
+            name="password"
+            required 
+            label="Contraseña" 
+            labelPlacement="stacked">
+          </ion-input>
+        </ion-item>
+
+        <!-- Botón de Inicio de Sesión -->
+        <ion-button 
+          type="submit" 
+          expand="block" 
+          color="primary" 
+          [disabled]="!email || !password" 
+          style="margin-top: 15px;">
+          Iniciar Sesión
+        </ion-button>
+      </form>
+
+      <!-- Botón de Registro 
+      <div class="register-link ion-text-center" style="margin-top: 10px;">
+        <p>¿No tienes cuenta? 
+          <a (click)="goToRegister()">Regístrate</a>
+        </p>
+      </div>-->
+      
+    </ion-card>
+  </div>
+</ion-content>

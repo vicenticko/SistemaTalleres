@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro de usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="registro-card">
+    <form [formGroup]="usuario" (ngSubmit)="registrar()">
+
+      <ion-item class="input-item">
+        <ion-input formControlName="rut" type="text" labelPlacement="stacked" label="RUT" placeholder="Ingresa tu RUT"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="primer_nombre" type="text" labelPlacement="stacked" label="Nombre" placeholder="Ingresa tu nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="primer_apellido" type="text" labelPlacement="stacked" label="Apellido" placeholder="Ingresa tu apellido"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-select formControlName="genero" labelPlacement="stacked" label="Genero">
+          <ion-select-option value="masculino">Masculino</ion-select-option>
+          <ion-select-option value="femenino">Femenino</ion-select-option>
+          <ion-select-option value="otro">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="fecha_nacimiento" type="date" labelPlacement="stacked" label="Fecha nacimiento"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="comuna" type="text" labelPlacement="stacked" label="Comuna" placeholder="Ingresa tu comuna"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="correo_electronico" type="text" labelPlacement="stacked" label="Correo Electronico" placeholder="Ingresa tu correo"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="contrasena" type="password" labelPlacement="stacked" label="Contraseña" placeholder="Ingresa tu contraseña"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input formControlName="confirmarContrasena" type="password" labelPlacement="stacked" label="Confirmar Contraseña" placeholder="Confirma tu contraseña"></ion-input>
+      </ion-item>
+      
+      <ion-button [disabled]="usuario.invalid" type="submit" size="block" color="warning" class="submit-button">REGISTRAR</ion-button>
+
+    </form>
+  </ion-card>
+</ion-content>
+
