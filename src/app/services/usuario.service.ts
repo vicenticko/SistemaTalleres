@@ -15,9 +15,12 @@ export class UsuarioService {
     let admin = {
       "rut": "16666666-6",
       "primer_nombre": "admin",
+      "segundo_nombre": "",
       "primer_apellido":"",
+      "segundo_apellido":"",
       "genero": "Masculino",
       "fecha_nacimiento": "2000-01-01",
+      "telefono":"",
       "comuna":"Puente Alto",
       "correo_electronico": "admin@duocuc.cl",
       "contrasena": "admin123.",
@@ -51,7 +54,25 @@ export class UsuarioService {
     return null;  // Retorna null si no se encuentra el usuario
   }
   
-
+  public async deleteUsuario(rut:string): Promise<boolean>{
+    let usuarios: any[] = await this.storage.get("usuarios") || [];
+    let indice: number = usuarios.findIndex(usu=>usu.rut==rut);
+    if(indice==-1){
+      return false;
+    }
+    usuarios.splice(indice,1);
+    await this.storage.set("usuarios",usuarios);
+    return true;
+  }
   
+  public async getUsuario(rut:string): Promise<any>{
+    let usuarios: any[] = await this.storage.get("usuarios") || [];
+    return usuarios.find(usu=>usu.rut==rut);
+  }
+
+  public async getUsuarios(): Promise<any[]>{
+    let usuarios: any[] = await this.storage.get("usuarios") || [];
+    return usuarios;
+  }
 
 }

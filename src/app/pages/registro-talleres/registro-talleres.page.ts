@@ -42,8 +42,8 @@ export class RegistroTalleresPage implements OnInit {
     }
   }
 
-  async buscar(usuario: any){
-    this.taller.setValue(usuario);
+  async buscar(taller: any){
+    this.taller.setValue(taller);
     this.botonModificar = false;
   }
 
