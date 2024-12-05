@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>registro-talleres</ion-title>
+    <ion-title>Registro de Talleres</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -9,50 +9,98 @@
 
 <ion-content [fullscreen]="true">
   <ion-card class="registro-card">
-    <form [formGroup]="usuario" (ngSubmit)="registrar()">
+    <form [formGroup]="taller" (ngSubmit)="registrar()">
 
+      <!-- Campo Código -->
       <ion-item class="input-item">
-        <ion-input formControlName="rut" type="text" labelPlacement="stacked" label="RUT" placeholder="Ingresa tu RUT"></ion-input>
+        <ion-input 
+          formControlName="codigo" 
+          type="text" 
+          labelPlacement="stacked" 
+          label="Código" 
+          placeholder="Ingresa el código del taller">
+        </ion-input>
       </ion-item>
 
+      <!-- Campo Nombre -->
       <ion-item class="input-item">
-        <ion-input formControlName="primer_nombre" type="text" labelPlacement="stacked" label="Nombre" placeholder="Ingresa tu nombre"></ion-input>
+        <ion-input 
+          formControlName="nombre" 
+          type="text" 
+          labelPlacement="stacked" 
+          label="Nombre" 
+          placeholder="Ingresa el nombre del taller">
+        </ion-input>
       </ion-item>
 
+      <!-- Campo Horas -->
       <ion-item class="input-item">
-        <ion-input formControlName="primer_apellido" type="text" labelPlacement="stacked" label="Apellido" placeholder="Ingresa tu apellido"></ion-input>
+        <ion-input 
+          formControlName="horas" 
+          type="number" 
+          labelPlacement="stacked" 
+          label="Horas" 
+          placeholder="Ingresa las horas del taller">
+        </ion-input>
       </ion-item>
 
+      <!-- Campo Descripción -->
       <ion-item class="input-item">
-        <ion-select formControlName="genero" labelPlacement="stacked" label="Genero">
-          <ion-select-option value="masculino">Masculino</ion-select-option>
-          <ion-select-option value="femenino">Femenino</ion-select-option>
-          <ion-select-option value="otro">Otro</ion-select-option>
-        </ion-select>
+        <ion-textarea 
+          formControlName="descripcion" 
+          labelPlacement="stacked" 
+          label="Descripción" 
+          placeholder="Describe el taller">
+        </ion-textarea>
       </ion-item>
 
+      <!-- Campo Instructor -->
       <ion-item class="input-item">
-        <ion-input formControlName="fecha_nacimiento" type="date" labelPlacement="stacked" label="Fecha nacimiento"></ion-input>
+        <ion-input 
+          formControlName="instructor" 
+          type="text" 
+          labelPlacement="stacked" 
+          label="Instructor" 
+          placeholder="Ingresa el nombre del instructor (opcional)">
+        </ion-input>
       </ion-item>
 
-      <ion-item class="input-item">
-        <ion-input formControlName="comuna" type="text" labelPlacement="stacked" label="Comuna" placeholder="Ingresa tu comuna"></ion-input>
-      </ion-item>
-
-      <ion-item class="input-item">
-        <ion-input formControlName="correo_electronico" type="text" labelPlacement="stacked" label="Correo Electronico" placeholder="Ingresa tu correo"></ion-input>
-      </ion-item>
-
-      <ion-item class="input-item">
-        <ion-input formControlName="contrasena" type="password" labelPlacement="stacked" label="Contraseña" placeholder="Ingresa tu contraseña"></ion-input>
-      </ion-item>
-
-      <ion-item class="input-item">
-        <ion-input formControlName="confirmarContrasena" type="password" labelPlacement="stacked" label="Confirmar Contraseña" placeholder="Confirma tu contraseña"></ion-input>
-      </ion-item>
-      
-      <ion-button [disabled]="usuario.invalid" type="submit" size="block" color="warning" class="submit-button">REGISTRAR</ion-button>
+      <!-- Botón de Registrar -->
+      <ion-button 
+        [disabled]="taller.invalid" 
+        type="submit" 
+        size="block" 
+        color="warning" 
+        class="submit-button">
+        REGISTRAR
+      </ion-button>
 
     </form>
   </ion-card>
+
+  <ion-card class="registro-card">
+    <!-- Mostrar mensaje si no hay talleres -->
+    <ion-list *ngIf="talleres.length === 0" style="color: white; background: transparent;">
+      <ion-item>
+        <ion-label>No hay talleres registrados.</ion-label>
+      </ion-item>
+    </ion-list>
+  
+    <!-- Mostrar lista de talleres si existen -->
+    <ion-list *ngIf="talleres.length > 0" style="color: white; background: transparent;">
+      <ion-item-sliding *ngFor="let taller of talleres">
+        <ion-item-options side="start">
+          <ion-item-option (click)="buscar(taller)" color="warning">Buscar</ion-item-option>
+        </ion-item-options>
+  
+        <ion-item>{{taller.nombre}}</ion-item>
+  
+        <ion-item-options side="end">
+          <ion-item-option (click)="eliminar(taller.codigo)" color="danger">Eliminar</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+  
+
 </ion-content>
