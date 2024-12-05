@@ -37,16 +37,20 @@ export class UsuarioService {
     return true;
   }
 
-  public async login(correo_electronico: string, contrasena: string): Promise<any>{
+  public async login(correo_electronico: string, contrasena: string): Promise<any> {
     let usuarios: any[] = await this.storage.get("usuarios") || [];
-    const usu =  usuarios.find(elemento=> elemento.correo_electronico==correo_electronico && elemento.contrasena==contrasena);
-    if(usu){
-      //localStorage almacena la información SI o SI como String:
-      localStorage.setItem("usuario", JSON.stringify(usu) );
-      return true;
+    const usu = usuarios.find(elemento => 
+      elemento.correo_electronico == correo_electronico && 
+      elemento.contrasena == contrasena
+    );
+  
+    if (usu) {
+      // Retorna el objeto completo del usuario
+      return usu;
     }
-    return false;
+    return null;  // Retorna null si no se encuentra el usuario
   }
+  
 
   
 

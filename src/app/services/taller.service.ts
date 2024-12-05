@@ -43,4 +43,15 @@ export class TallerService {
     return true;
   }
 
+  public async updateTaller(codigo:string, nuevoTaller:any): Promise<boolean>{
+    let talleres: any[] = await this.storage.get("talleres") || [];
+    let indice: number = talleres.findIndex(ta=>ta.codigo==codigo);
+    if(indice==-1){
+      return false;
+    }
+    talleres[indice] = nuevoTaller;
+    await this.storage.set("talleres",talleres);
+    return true;
+  }
+
 }

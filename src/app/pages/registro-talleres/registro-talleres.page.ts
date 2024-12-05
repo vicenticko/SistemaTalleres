@@ -52,6 +52,18 @@ export class RegistroTalleresPage implements OnInit {
     this.cargarTalleres();
   }
 
+  async modificar() {
+    var codigo_buscar: string = this.taller.controls.codigo.value || "";
+    if (await this.tallerService.updateTaller(codigo_buscar, this.taller.value)) {
+      alert("Éxito Usuario modificado con éxito!");
+      this.botonModificar = true;
+      this.taller.reset();
+      this.talleres = await this.tallerService.getTalleres();
+    } else {
+      alert("Error Usuario no modificado!");
+    }
+  }
+
   validarRUT(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const rutValue = control.value;

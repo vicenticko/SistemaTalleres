@@ -75,6 +75,15 @@
         REGISTRAR
       </ion-button>
 
+      <!-- Botón de Modificar -->
+      <ion-button 
+        (click)="modificar()"
+        [disabled]="taller.invalid" 
+        size="block"
+        class="submit-button">
+        MODIFICAR
+      </ion-button>
+
     </form>
   </ion-card>
 
