@@ -45,7 +45,7 @@ export class RegistroUsuariosPage implements OnInit {
   async registrar(){
 
     if(await this.usuarioService.createUsuario(this.usuario.value)){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/registro-usuarios']);
       this.usuario.reset();
       alert("Usuario creado con éxito!")
     }

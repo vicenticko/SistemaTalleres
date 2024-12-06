@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private usuarioService: UsuarioService, alertController: AlertController, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }
@@ -34,7 +34,19 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/home']);
     } else {
       console.log('Correo o contraseña incorrectos');
+      // Muestra la alerta de error
+      await this.mostrarAlerta('Error', 'Correo o contraseña incorrectos. Por favor, intenta nuevamente.');
     }
+  }
+  
+  // Método para mostrar alertas
+  async mostrarAlerta(titulo: string, mensaje: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: ['Aceptar'], // Botón para cerrar la alerta
+    });
+    await alert.present(); // Presenta la alerta
   }
   
 

@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="--background: url('assets/img/cielo.jpg') no-repeat center center / cover;">
   <ion-card class="registro-card">
     <form [formGroup]="usuario" (ngSubmit)="registrar()">
 
@@ -58,7 +58,7 @@
         <ion-input formControlName="confirmarContrasena" type="password" labelPlacement="stacked" label="Confirmar Contraseña" placeholder="Confirma tu contraseña"></ion-input>
       </ion-item>
       
-      <ion-button [disabled]="usuario.invalid" type="submit" size="block" color="warning" class="submit-button">REGISTRAR</ion-button>
+      <ion-button [disabled]="usuario.invalid" type="submit" size="block" color="secondary" class="submit-button">REGISTRAR</ion-button>
 
     </form>
   </ion-card>
