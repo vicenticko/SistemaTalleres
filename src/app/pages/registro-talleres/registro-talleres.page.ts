@@ -12,6 +12,7 @@ export class RegistroTalleresPage implements OnInit {
 
   talleres: any[] = [];
   botonModificar: boolean = true;
+  botonRegistrar: boolean = true;
 
   taller = new FormGroup({
     codigo : new FormControl('',[Validators.required]),
@@ -55,13 +56,19 @@ export class RegistroTalleresPage implements OnInit {
   async modificar() {
     var codigo_buscar: string = this.taller.controls.codigo.value || "";
     if (await this.tallerService.updateTaller(codigo_buscar, this.taller.value)) {
-      alert("Éxito Usuario modificado con éxito!");
+      alert("Éxito Taller modificado con éxito!");
       this.botonModificar = true;
       this.taller.reset();
       this.talleres = await this.tallerService.getTalleres();
     } else {
-      alert("Error Usuario no modificado!");
+      alert("Error Taller no modificado!");
     }
+  }
+
+  public limpiar(){
+    document.getElementById("codigo")?.setAttribute("disabled", "false")
+    this.botonModificar = true;
+    this.botonRegistrar = false;
   }
 
   validarRUT(): ValidatorFn {

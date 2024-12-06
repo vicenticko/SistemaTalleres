@@ -12,6 +12,7 @@ export class RegistroUsuariosPage implements OnInit {
 
   usuarios: any[] = [];
   botonModificar: boolean = true;
+  botonRegistrar: boolean = true;
 
   usuario = new FormGroup({
     rut: new FormControl('', [Validators.required, Validators.pattern("[0-9]{7,8}-[0-9Kk]{1}"), this.validarRUT()]),
@@ -55,9 +56,27 @@ export class RegistroUsuariosPage implements OnInit {
     this.botonModificar = false;
   }
 
+  async modificar() {
+    var rut_buscar: string = this.usuario.controls.rut.value || "";
+    if (await this.usuarioService.updateUsuario(rut_buscar, this.usuario.value)) {
+      alert("Éxito Usuario modificado con éxito!");
+      this.botonModificar = true;
+      this.usuario.reset();
+      this.usuarios = await this.usuarioService.getUsuarios();
+    } else {
+      alert("Error Usuario no modificado!");
+    }
+  }
+
   async eliminar(codigo_eliminar:string){
     this.usuarioService.deleteUsuario(codigo_eliminar);
     this.cargarUsuarios();
+  }
+
+  public limpiar(){
+    document.getElementById("codigo")?.setAttribute("disabled", "false")
+    this.botonModificar = true;
+    this.botonRegistrar = false;
   }
 
   validarRUT(): ValidatorFn {

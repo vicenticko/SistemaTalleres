@@ -60,6 +60,10 @@
       
       <ion-button [disabled]="usuario.invalid" type="submit" size="block" color="warning" class="submit-button">REGISTRAR</ion-button>
 
+      <ion-button (click)="modificar()" [disabled]="usuario.invalid" size="block" class="submit-button">MODIFICAR</ion-button>
+      
+      <ion-button (click)="limpiar()" color="tertiary" type="reset" size="block" class="submit-button"> Limpiar</ion-button>
+
     </form>
   </ion-card>
 

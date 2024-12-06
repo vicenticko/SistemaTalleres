@@ -75,4 +75,15 @@ export class UsuarioService {
     return usuarios;
   }
 
+  public async updateUsuario(rut:string, nuevoUsuario:any): Promise<boolean>{
+    let usuarios: any[] = await this.storage.get("usuarios") || [];
+    let indice: number = usuarios.findIndex(usu=>usu.rut==rut);
+    if(indice==-1){
+      return false;
+    }
+    usuarios[indice] = nuevoUsuario;
+    await this.storage.set("usuarios",usuarios);
+    return true;
+  }
+
 }
