@@ -20,23 +20,23 @@ export class HomePage {
   }
 
   onLogin() {
-    console.log('Botón de Iniciar Sesión presionado');
     this.router.navigate(['/login']);
   }
 
   onRegister() {
-    console.log('Botón de Registrar presionado');
     this.router.navigate(['/registro']);
   }
 
   registrarTaller(){
-    console.log('Botón de Registrar Taller presionado');
     this.router.navigate(['/registro-talleres'])
   }
 
   registrarUsuario(){
-    console.log('Botón de Registrar Usuario presionado');
     this.router.navigate(['/registro-usuarios'])
+  }
+
+  perfil(){
+    this.router.navigate(['/perfil'])
   }
 
   async logout() {

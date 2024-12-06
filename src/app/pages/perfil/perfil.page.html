@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="registro-card">
+    <!-- Ícono de perfil y entrada para cambiar foto -->
+    <div class="profile-icon-wrapper">
+      <ion-avatar class="profile-icon" (click)="fileInput.click()">
+        <img [src]="profileImage" alt="Foto de perfil" />
+      </ion-avatar>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input" #fileInput />
+    </div>
+    <!-- Mostrar información del usuario -->
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <strong>Nombre:</strong> {{ usuario.primer_nombre }} {{ usuario.primer_apellido }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <strong>Teléfono:</strong> {{ usuario.telefono }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <strong>Comuna:</strong> {{ usuario.comuna }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <strong>Correo Electrónico:</strong> {{ usuario.correo_electronico }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <strong>Tipo de Usuario:</strong> {{ usuario.tipo_usuario }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
