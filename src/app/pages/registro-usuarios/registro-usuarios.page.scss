@@ -25,4 +25,16 @@
         width: 90%; /* El card ocupará el 90% del ancho en pantallas pequeñas */
     }
 }
-  
+
+/* Estilo para el ion-item-divider */
+ion-item-divider {
+    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+    color: white; /* Texto blanco para contrastar con el fondo */
+    font-weight: bold; /* Negrita para destacar el texto */
+    font-size: 1.1rem; /* Tamaño ligeramente mayor */
+    text-align: center; /* Texto centrado */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin: 10px 0; /* Separación entre divisores */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}

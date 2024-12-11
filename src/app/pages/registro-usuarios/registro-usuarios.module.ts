@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RegistroUsuariosPageRoutingModule } from './registro-usuarios-routing.module';
 
 import { RegistroUsuariosPage } from './registro-usuarios.page';
+import { FilterByTypePipe } from 'src/app/pipes/filter-by-type.pipe';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { RegistroUsuariosPage } from './registro-usuarios.page';
     RegistroUsuariosPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [RegistroUsuariosPage]
+  declarations: [RegistroUsuariosPage, FilterByTypePipe]
 })
 export class RegistroUsuariosPageModule {}

@@ -71,28 +71,32 @@
   </ion-card>
 
   <ion-card class="registro-card">
-    <!-- Mostrar mensaje si no hay talleres -->
+    <!-- Mostrar mensaje si no hay usuarios -->
     <ion-list *ngIf="usuarios.length === 0" style="color: white; background: transparent;">
       <ion-item>
         <ion-label>No hay usuarios registrados.</ion-label>
       </ion-item>
     </ion-list>
   
-    <!-- Mostrar lista de talleres si existen -->
+    <!-- Mostrar lista de usuarios agrupados por tipo si existen -->
     <ion-list *ngIf="usuarios.length > 0" style="color: white; background: transparent;">
-      <ion-item-sliding *ngFor="let usuario of usuarios">
-        <ion-item-options side="start">
-          <ion-item-option (click)="buscar(usuario)" color="warning">Buscar</ion-item-option>
-        </ion-item-options>
+      <ng-container *ngFor="let tipo of tiposUsuario">
+        <ion-item-divider color="light">{{ tipo }}</ion-item-divider>
+        <ion-item-sliding *ngFor="let usuario of usuarios | filterByType: tipo">
+          <ion-item-options side="start">
+            <ion-item-option (click)="buscar(usuario)" color="warning">Buscar</ion-item-option>
+          </ion-item-options>
   
-        <ion-item>{{usuario.rut}} - {{usuario.primer_nombre}}</ion-item>
+          <ion-item>{{ usuario.rut }} - {{ usuario.primer_nombre }} - {{ usuario.tipo_usuario }}</ion-item>
   
-        <ion-item-options side="end">
-          <ion-item-option (click)="eliminar(usuario.rut)" color="danger">Eliminar</ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+          <ion-item-options side="end">
+            <ion-item-option (click)="eliminar(usuario.rut)" color="danger">Eliminar</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ng-container>
     </ion-list>
   </ion-card>
+  
 
 </ion-content>
 
