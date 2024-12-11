@@ -64,4 +64,12 @@ export class HomePage {
     await alert.present();
   }
 
+  talleres(){
+    this.router.navigate(['/talleres'])
+  }
+
+  postulacion(){
+    this.router.navigate(['/postulacion'])
+  }
+
 }

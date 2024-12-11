@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyDl-3XZzKTtWHYdakAnl92ct-lZtkann1I",
-    authDomain: "talleres-134c6.firebaseapp.com",
-    projectId: "talleres-134c6",
-    storageBucket: "talleres-134c6.firebasestorage.app",
-    messagingSenderId: "111226789482",
-    appId: "1:111226789482:web:f3470d1cfe9428f02bb413"
+    apiKey: "AIzaSyDu0s4EyS2FvjbzZ7Si2PVf6LQSbEuI2Nk",
+    authDomain: "talleres-6614e.firebaseapp.com",
+    projectId: "talleres-6614e",
+    storageBucket: "talleres-6614e.firebasestorage.app",
+    messagingSenderId: "611464639275",
+    appId: "1:611464639275:web:5abe4fff72001ae14d0b6e"
   }
 };
 

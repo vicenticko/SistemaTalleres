@@ -46,14 +46,34 @@
 
 <ion-content [fullscreen]="true" id="main-content">
   <div class="container">
-    <ion-card >
-      <img src="assets/img/muni2.jpg" alt="Logo" class="logo" />
+    <!-- Primer ion-card -->
+    <ion-card>
       <ion-card-content>
         <h2>Bienvenido Municipalidad de Puente Alto</h2>
         <p>
           Navega por las opciones del menú lateral para acceder a las funcionalidades disponibles.
         </p>
       </ion-card-content>
+      <img src="assets/img/muni2.jpg" alt="Logo" class="logo" />
+    </ion-card>
+
+    <!-- Segundo ion-card dividido en dos lados -->
+    <ion-card>
+      <ion-card-content>
+        <div class="split-content">
+          <!-- Lado izquierdo -->
+          <div class="left-side">
+            <img src="assets/img/cielo.jpg" alt="Imagen izquierda" class="split-image" />
+            <ion-button expand="block" class="left-button" (click)="talleres()">Talleres Disponibles</ion-button>
+          </div>
+          <!-- Lado derecho -->
+          <div class="right-side">
+            <img src="assets/img/fondo.jpg" alt="Imagen derecha" class="split-image" />
+            <ion-button expand="block" class="right-button" (click)="postulacion()">Postular como Instructor</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
     </ion-card>
   </div>
 </ion-content>
+
