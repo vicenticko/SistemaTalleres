@@ -1,7 +1,23 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-  }
+.taller-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.no-talleres {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+}
+
+.text-info {
+  flex-grow: 1; /* Esto asegura que el texto ocupe el espacio disponible */
+}
+
+ion-button {
+  margin-left: auto;
+  margin-left: 50px; /* Alinea el botón a la derecha */
+}

@@ -48,9 +48,5 @@ export class LoginPage implements OnInit {
     });
     await alert.present(); // Presenta la alerta
   }
-  
-  home(){
-    this.router.navigate(['/home'])
-  }
 
 }

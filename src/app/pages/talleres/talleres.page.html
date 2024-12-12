@@ -8,7 +8,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card class="container">
+  <!-- Mostrar mensaje si no hay talleres disponibles -->
+  <div *ngIf="talleres.length === 0" class="no-talleres">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>No hay talleres disponibles</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Actualmente no hay talleres programados. Por favor, vuelve más tarde.
+      </ion-card-content>
+    </ion-card>
+  </div>
 
-  </ion-card>
+  <!-- Mostrar lista de talleres si hay disponibles -->
+  <ion-list *ngIf="talleres.length > 0">
+    <ion-item *ngFor="let taller of talleres">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ taller.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="taller-info">
+            <div class="text-info">
+              <p>Horas: {{ taller.horas }} horas semanales</p>
+              <p>Instructor: {{ taller.instructor }}</p>
+            </div>
+            <!-- Botón para tomar el taller, alineado a la derecha -->
+            <ion-button expand="default">Tomar Taller</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TallerService } from 'src/app/services/taller.service';
 
 @Component({
   selector: 'app-talleres',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalleresPage implements OnInit {
 
-  constructor() { }
+  talleres: any[] = [];
+
+  constructor(private tallerService: TallerService) { }
 
   ngOnInit() {
+    this.cargarTalleres();
   }
 
+  async cargarTalleres() {
+    this.talleres = await this.tallerService.getTalleres();
+  }
+
+  tomarTaller() {
+  }
 }

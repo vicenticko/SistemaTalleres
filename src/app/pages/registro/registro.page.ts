@@ -69,9 +69,4 @@ export class RegistroPage implements OnInit {
     if (resto === 10) return 'K';
     return resto.toString();
   }
-
-  home(){
-    this.router.navigate(['/home'])
-  }
-
 }
