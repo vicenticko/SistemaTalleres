@@ -14,7 +14,7 @@ export class RegistroUsuariosPage implements OnInit {
   botonModificar: boolean = true;
   botonRegistrar: boolean = true;
 
-  tiposUsuario = ['Usuario', 'Administrador', 'Instructor', 'Adulto Mayor', 'Funcionario Municipal'];
+  tiposUsuario = ['Administrador', 'Instructor', 'Adulto Mayor', 'Funcionario Municipal'];
 
   usuario = new FormGroup({
     rut: new FormControl('', [Validators.required, Validators.pattern("[0-9]{7,8}-[0-9Kk]{1}"), this.validarRUT()]),

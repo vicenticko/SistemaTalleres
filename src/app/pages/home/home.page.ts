@@ -9,14 +9,21 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
 
-  
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false; // Variable para controlar si el usuario es administrador
+  isFuncionarioMunicipal: boolean = false; // Variable para controlar si el usuario es funcionario municipal
 
   constructor(private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {
     // Verifica si el usuario está logueado (ajusta esta lógica según tu implementación de autenticación)
-    this.isLoggedIn = !!localStorage.getItem('usuario');
+    const usuario = localStorage.getItem('usuario');
+    if (usuario) {
+      this.isLoggedIn = true;
+      const usuarioData = JSON.parse(usuario); // Suponiendo que el usuario está almacenado como JSON
+      this.isAdmin = usuarioData.tipo_usuario === 'Administrador'; // Verifica si es administrador
+      this.isFuncionarioMunicipal = usuarioData.tipo_usuario === 'Funcionario Municipal'; // Verifica si es funcionario municipal
+    }
   }
 
   onLogin() {
@@ -28,23 +35,23 @@ export class HomePage {
   }
 
   registrarTaller(){
-    this.router.navigate(['/registro-talleres'])
+    this.router.navigate(['/registro-talleres']);
   }
 
   registrarUsuario(){
-    this.router.navigate(['/registro-usuarios'])
+    this.router.navigate(['/registro-usuarios']);
   }
 
   perfil(){
-    this.router.navigate(['/perfil'])
+    this.router.navigate(['/perfil']);
   }
 
   talleres(){
-      this.router.navigate(['/talleres'])
-    }
+    this.router.navigate(['/talleres']);
+  }
 
   postulacion(){
-    this.router.navigate(['/postulacion'])
+    this.router.navigate(['/postulacion']);
   }
 
   async logout() {
@@ -62,6 +69,8 @@ export class HomePage {
           handler: () => {
             localStorage.removeItem('usuario'); // Limpia el token
             this.isLoggedIn = false; // Actualiza el estado
+            this.isAdmin = false; // Restablece el estado de administrador
+            this.isFuncionarioMunicipal = false; // Restablece el estado de funcionario municipal
             this.router.navigate(['/home']);
             console.log('Cerraste sesión');
           },

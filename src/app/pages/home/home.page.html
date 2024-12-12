@@ -11,11 +11,11 @@
         <ion-icon  slot="start" name="person-outline"></ion-icon>
         <ion-button (click)="perfil()">Perfil</ion-button>
       </ion-item>
-      <ion-item *ngIf="isLoggedIn">
+      <ion-item *ngIf="isLoggedIn && (isAdmin || isFuncionarioMunicipal)">
         <ion-icon  slot="start" name="create-outline"></ion-icon>
         <ion-button (click)="registrarTaller()">Registrar Taller</ion-button>
       </ion-item>
-      <ion-item *ngIf="isLoggedIn">
+      <ion-item *ngIf="isLoggedIn && (isAdmin || isFuncionarioMunicipal)">
         <ion-icon slot="start" name="person-add-outline"></ion-icon>
         <ion-button (click)="registrarUsuario()">Registrar Usuario</ion-button>
       </ion-item>
@@ -32,6 +32,8 @@
     </ion-list>
   </ion-content>
 </ion-menu>
+
+
 
 <!-- Contenido Principal -->
 <ion-header [translucent]="true">

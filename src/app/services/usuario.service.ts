@@ -12,6 +12,7 @@ export class UsuarioService {
 
   async init(){
     await this.storage.create();
+
     let admin = {
       "rut": "16666666-6",
       "primer_nombre": "admin",
@@ -22,12 +23,64 @@ export class UsuarioService {
       "fecha_nacimiento": "2000-01-01",
       "telefono":"",
       "comuna":"Puente Alto",
-      "correo_electronico": "admin@duocuc.cl",
-      "contrasena": "admin123.",
-      "confirmarContrasena": "admin123.",
+      "correo_electronico": "admin@gmail.com",
+      "contrasena": "admin123",
+      "confirmarContrasena": "admin123",
       "tipo_usuario": "Administrador"
     };
+
+    let adulto_mayor = {
+      "rut": "18888888-8",
+      "primer_nombre": "Juan",
+      "segundo_nombre": "",
+      "primer_apellido": "Pérez",
+      "segundo_apellido": "",
+      "genero": "Masculino",
+      "fecha_nacimiento": "1950-05-10",
+      "telefono": "987654321",
+      "comuna": "Santiago",
+      "correo_electronico": "adultomayor@gmail.com",
+      "contrasena": "adultomayor123",
+      "confirmarContrasena": "adultomayor123",
+      "tipo_usuario": "Adulto Mayor"
+    };
+
+    let instructor = {
+      "rut": "17777777-7",
+      "primer_nombre": "Carlos",
+      "segundo_nombre": "",
+      "primer_apellido": "Sánchez",
+      "segundo_apellido": "",
+      "genero": "Masculino",
+      "fecha_nacimiento": "1985-03-15",
+      "telefono": "987654322",
+      "comuna": "La Florida",
+      "correo_electronico": "instructor@gmail.com",
+      "contrasena": "instructor123",
+      "confirmarContrasena": "instructor123",
+      "tipo_usuario": "Instructor"
+    };
+
+    let funcionario_municipal = {
+      "rut": "19999999-9",
+      "primer_nombre": "Ana",
+      "segundo_nombre": "",
+      "primer_apellido": "Gómez",
+      "segundo_apellido": "",
+      "genero": "Femenino",
+      "fecha_nacimiento": "1990-07-20",
+      "telefono": "987654323",
+      "comuna": "Ñuñoa",
+      "correo_electronico": "funcionario@gmail.com",
+      "contrasena": "funcionario123",
+      "confirmarContrasena": "funcionario123",
+      "tipo_usuario": "Funcionario Municipal"
+    };
+
     await this.createUsuario(admin);
+    await this.createUsuario(adulto_mayor);
+    await this.createUsuario(instructor);
+    await this.createUsuario(funcionario_municipal);
   }
   
   public async createUsuario(usuario:any): Promise<boolean>{
