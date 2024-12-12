@@ -15,14 +15,23 @@ export class TallerService {
 
   async init(){
     await this.storage.create();
-    let tallers = {
+    let taller1 = {
       "codigo" : "666",
-      "nombre" : "Basqutball",
+      "nombre" : "Basquetball",
       "horas": "5",
      "descripcion": "",
       "instructor": ""
     };
-    await this.createTaller(tallers);
+
+    let taller2 = {
+      "codigo" : "555",
+      "nombre" : "Ajedrez",
+      "horas": "5",
+     "descripcion": "",
+      "instructor": ""
+    };
+    await this.createTaller(taller1);
+    await this.createTaller(taller2);
   }
 
   public async createTaller(taller:any): Promise<boolean>{
