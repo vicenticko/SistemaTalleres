@@ -21,5 +21,6 @@ export class TalleresPage implements OnInit {
   }
 
   tomarTaller() {
+    
   }
 }

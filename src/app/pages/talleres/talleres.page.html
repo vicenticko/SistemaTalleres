@@ -22,10 +22,9 @@
 
   <!-- Mostrar lista de talleres si hay disponibles -->
   <ion-list *ngIf="talleres.length > 0">
-    <ion-item *ngFor="let taller of talleres">
-      <ion-card>
+      <ion-card *ngFor="let taller of talleres">
         <ion-card-header>
-          <ion-card-title>{{ taller.nombre }}</ion-card-title>
+          <ion-card-title>Taller de {{ taller.nombre }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <div class="taller-info">
@@ -38,6 +37,5 @@
           </div>
         </ion-card-content>
       </ion-card>
-    </ion-item>
   </ion-list>
 </ion-content>
