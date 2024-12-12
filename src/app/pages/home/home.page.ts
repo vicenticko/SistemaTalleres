@@ -39,6 +39,14 @@ export class HomePage {
     this.router.navigate(['/perfil'])
   }
 
+  talleres(){
+      this.router.navigate(['/talleres'])
+    }
+
+  postulacion(){
+    this.router.navigate(['/postulacion'])
+  }
+
   async logout() {
     const alert = await this.alertController.create({
       header: 'Confirmar Logout',
@@ -63,13 +71,4 @@ export class HomePage {
 
     await alert.present();
   }
-
-  talleres(){
-    this.router.navigate(['/talleres'])
-  }
-
-  postulacion(){
-    this.router.navigate(['/postulacion'])
-  }
-
 }

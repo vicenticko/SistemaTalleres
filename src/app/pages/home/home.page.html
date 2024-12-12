@@ -25,7 +25,7 @@
       <ion-item *ngIf="!isLoggedIn">
         <ion-button color="secondary" (click)="onRegister()">Registrar</ion-button>
       </ion-item>
-      <ion-item (click)="logout()" *ngIf="isLoggedIn">
+      <ion-item *ngIf="isLoggedIn" (click)="logout()">
         <ion-icon slot="start" name="log-out-outline"></ion-icon>
         <ion-button>Cerrar Sesión</ion-button>
       </ion-item>
@@ -63,17 +63,17 @@
         <div class="split-content">
           <!-- Lado izquierdo -->
           <div class="left-side">
-            <img src="assets/img/cielo.jpg" alt="Imagen izquierda" class="split-image" />
+            <img src="assets/img/talleres.png" alt="Imagen izquierda" class="split-image" />
             <ion-button expand="block" class="left-button" (click)="talleres()">Talleres Disponibles</ion-button>
           </div>
           <!-- Lado derecho -->
           <div class="right-side">
-            <img src="assets/img/fondo.jpg" alt="Imagen derecha" class="split-image" />
-            <ion-button expand="block" class="right-button" (click)="postulacion()">Postular como Instructor</ion-button>
+            <ion-button expand="block" class="right-button" (click)="postulacion()">Postula Aquí</ion-button>
           </div>
         </div>
       </ion-card-content>
     </ion-card>
+
   </div>
 </ion-content>
 

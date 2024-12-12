@@ -70,5 +70,8 @@ export class RegistroPage implements OnInit {
     return resto.toString();
   }
 
+  home(){
+    this.router.navigate(['/home'])
+  }
 
 }
