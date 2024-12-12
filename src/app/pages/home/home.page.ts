@@ -12,7 +12,9 @@ export class HomePage {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false; // Variable para controlar si el usuario es administrador
   isFuncionarioMunicipal: boolean = false; // Variable para controlar si el usuario es funcionario municipal
-
+  isAdulto_Mayor: boolean = false; // Variable para controlar si el usuario es adulto mayor
+  isInstructor: boolean = false; // Variable para controlar si el usuario es instructor
+  
   constructor(private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {
@@ -23,6 +25,8 @@ export class HomePage {
       const usuarioData = JSON.parse(usuario); // Suponiendo que el usuario está almacenado como JSON
       this.isAdmin = usuarioData.tipo_usuario === 'Administrador'; // Verifica si es administrador
       this.isFuncionarioMunicipal = usuarioData.tipo_usuario === 'Funcionario Municipal'; // Verifica si es funcionario municipal
+      this.isAdulto_Mayor = usuarioData.tipo_usuario === 'Adulto Mayor'; // Verifica si es adulto mayor
+      this.isInstructor = usuarioData.tipo_usuario === 'Instructor'; // Verifica si es Instructor
     }
   }
 
@@ -71,6 +75,8 @@ export class HomePage {
             this.isLoggedIn = false; // Actualiza el estado
             this.isAdmin = false; // Restablece el estado de administrador
             this.isFuncionarioMunicipal = false; // Restablece el estado de funcionario municipal
+            this.isAdulto_Mayor = false; // Restablece el estado de adulto mayor
+            this.isInstructor = false; // Restablece el estado de instructor
             this.router.navigate(['/home']);
             console.log('Cerraste sesión');
           },

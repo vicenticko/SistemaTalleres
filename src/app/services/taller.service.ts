@@ -9,7 +9,20 @@ export class TallerService {
   talleres : any[] = [];
 
   constructor(private storage: Storage) {
-    storage.create()
+    storage.create();
+    this.init();
+  }
+
+  async init(){
+    await this.storage.create();
+    let tallers = {
+      "codigo" : "666",
+      "nombre" : "Basqutball",
+      "horas": "5",
+     "descripcion": "",
+      "instructor": ""
+    };
+    await this.createTaller(tallers);
   }
 
   public async createTaller(taller:any): Promise<boolean>{

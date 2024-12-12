@@ -34,6 +34,7 @@
             </div>
             <!-- Botón para tomar el taller, alineado a la derecha -->
             <ion-button expand="default">Tomar Taller</ion-button>
+            <ion-button expand="default" color="danger" (click)="eliminar(taller.codigo)" *ngIf="isAdmin || isFuncionarioMunicipal || isInstructor" >Eliminar taller</ion-button>
           </div>
         </ion-card-content>
       </ion-card>
