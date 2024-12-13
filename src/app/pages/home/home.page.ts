@@ -58,6 +58,10 @@ export class HomePage {
     this.router.navigate(['/postulacion']);
   }
 
+  postulaciones(){
+    this.router.navigate(['/administrar-postulacion'])
+  }
+
   async logout() {
     const alert = await this.alertController.create({
       header: 'Confirmar Logout',

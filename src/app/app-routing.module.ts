@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'postulacion',
     loadChildren: () => import('./pages/postulacion/postulacion.module').then( m => m.PostulacionPageModule)
+  },  {
+    path: 'administrar-postulacion',
+    loadChildren: () => import('./pages/administrar-postulacion/administrar-postulacion.module').then( m => m.AdministrarPostulacionPageModule)
   },
+
 ];
 
 @NgModule({

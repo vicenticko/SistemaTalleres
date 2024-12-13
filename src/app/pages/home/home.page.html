@@ -19,6 +19,10 @@
         <ion-icon slot="start" name="person-add-outline"></ion-icon>
         <ion-button (click)="registrarUsuario()">Registrar Usuario</ion-button>
       </ion-item>
+      <ion-item *ngIf="isLoggedIn && (isAdmin || isFuncionarioMunicipal)">
+        <ion-icon slot="start" name="body-outline"></ion-icon>
+        <ion-button (click)="postulaciones()">Administrar postulaciones</ion-button>
+      </ion-item>
       <ion-item *ngIf="!isLoggedIn">
         <ion-button color="primary" (click)="onLogin()">Iniciar Sesión</ion-button>
       </ion-item>

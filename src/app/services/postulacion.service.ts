@@ -12,7 +12,18 @@ export class PostulacionService {
   }
 
   async init(){
-    this.storage.create()
+    await this.storage.create()
+
+    let postulacion1 = {
+      "rut_postulante":"12222222-2",
+      "nombre_postulante":"Juan",
+      "apellido_postulante":"Soto",
+      "fecha_nacimiento_postulante":"",
+      "correo_postulante":"juansoto@gmail.com",
+    };
+    
+    await this.createPostulacion(postulacion1);
+
   }
 
   public async createPostulacion(postulacion:any): Promise<boolean>{
