@@ -1,16 +1,67 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>postulacion</ion-title>
+    <ion-title>Postulación</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">postulacion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" style="--background: url('assets/img/cielo.jpg') no-repeat center center / cover;">
+  <ion-card class="postulacion-card">
+    <form [formGroup]="postulacion" (ngSubmit)="registrar()">
+      <ion-item class="input-item">
+        <ion-input 
+          formControlName="rut_postulante"
+          type="text" 
+          labelPlacement="stacked" 
+          label="RUT del Postulante" 
+          placeholder="Ingresa tu RUT"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input 
+          formControlName="nombre_postulante"  
+          type="text" 
+          labelPlacement="stacked" 
+          label="Nombre del Postulante" 
+          placeholder="Ingresa tu nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input
+          formControlName="apellido_postulante"
+          type="text" 
+          labelPlacement="stacked" 
+          label="Apellido del Postulante" 
+          placeholder="Ingresa tu apellido"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input
+          formControlName="fecha_nacimiento_postulante" 
+          type="date" 
+          labelPlacement="stacked" 
+          label="Fecha de Nacimiento"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-input
+          formControlName="correo_postulante" 
+          type="email" 
+          labelPlacement="stacked" 
+          label="Correo Electrónico" 
+          placeholder="Ingresa tu correo"></ion-input>
+      </ion-item>
+
+      <ion-button 
+        type="submit" 
+        size="block" 
+        color="success" 
+        class="submit-button"
+        [disabled]="postulacion.invalid">
+        Enviar Postulación
+      </ion-button>
+    </form>
+  </ion-card>
 </ion-content>

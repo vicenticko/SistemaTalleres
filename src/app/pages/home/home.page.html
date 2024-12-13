@@ -60,21 +60,42 @@
     </ion-card>
 
     <!-- Segundo ion-card dividido en dos lados -->
-    <ion-card>
-      <ion-card-content>
-        <div class="split-content">
-          <!-- Lado izquierdo -->
-          <div class="left-side">
-            <img src="assets/img/talleres.png" alt="Imagen izquierda" class="split-image" />
-            <ion-button expand="block" class="left-button" (click)="talleres()">Talleres Disponibles</ion-button>
-          </div>
-          <!-- Lado derecho -->
-          <div class="right-side">
-            <ion-button expand="block" class="right-button" (click)="postulacion()">Postula Aquí</ion-button>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
+<ion-card>
+  <ion-card-content>
+    <div class="split-content">
+      <!-- Lado izquierdo -->
+      <div class="left-side">
+        <img src="assets/img/talleres.png" alt="Imagen izquierda" class="split-image" />
+        <ion-button 
+          expand="block" 
+          class="left-button" 
+          *ngIf="isLoggedIn; else loginToTaller"
+          (click)="talleres()">
+          Talleres Disponibles
+        </ion-button>
+        <ng-template #loginToTaller>
+          <ion-button 
+            expand="block" 
+            class="left-button" 
+            color="primary" 
+            (click)="onLogin()">
+            Inicia Sesión para Tomar un Taller
+          </ion-button>
+        </ng-template>
+      </div>
+      <!-- Lado derecho -->
+      <div class="right-side">
+        <ion-button 
+          expand="block" 
+          class="right-button" 
+          (click)="postulacion()">
+          Postula Aquí
+        </ion-button>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>
+
 
   </div>
 </ion-content>

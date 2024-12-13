@@ -1,0 +1,29 @@
+/* Estilo para el ion-card */
+.postulacion-card {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    //background: rgba(0, 0, 0); /* Fondo ligeramente translúcido */
+  }
+  
+  /* Asegura que los campos sean más pequeños pero claros */
+  .input-item {
+    --min-height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  /* Botón de enviar con estilo */
+  .submit-button {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .postulacion-card {
+      width: 90%;
+    }
+  }
+  
